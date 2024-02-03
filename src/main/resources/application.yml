@@ -1,0 +1,40 @@
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: debug
+
+server:
+  error:
+    include-exception: true
+    include-stacktrace: always
+
+  port: 8080
+
+#DB 설정
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/pingpong
+    username: sa
+    password: 1234
+  output:
+    ansi:
+      enabled: always
+  mvc:
+    pathmatch:
+      matching-strategy:
+
+  #JPA 설정
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
